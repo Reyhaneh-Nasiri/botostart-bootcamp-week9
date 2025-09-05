@@ -1,7 +1,7 @@
 const duck = document.querySelector(".duck");
 
 duck.addEventListener("click", () => {
-  const duckSqueakSound = new Audio("../assets/Audio/duck-squeak-toy.mp3");
+  const duckSqueakSound = new Audio("../src/Audio/duck-squeak-toy.mp3");
   duckSqueakSound.play();
 });
 
