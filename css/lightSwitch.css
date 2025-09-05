@@ -1,0 +1,59 @@
+.switch {
+    position: absolute;
+    bottom: 40%;
+    right: 10%;
+    width: 80px;
+    height: 80px;
+    background: linear-gradient(#eee, #ccc, #eee);
+    border: 3px solid #000;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10;
+    transform: scale(.3);
+    overflow: hidden;
+}
+
+.switch::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    background-color: rgba(0, 0, 0, .4);
+}
+
+body.on .switch::before {
+    background: linear-gradient(#eee, #ccc, #eee);
+}
+
+.switch .btn {
+    position: relative;
+    width: 25px;
+    height: 40px;
+    background: linear-gradient(#777, #fff, #777);
+    border-radius: 6px;
+    border: 2px solid #000;
+    cursor: pointer;
+}
+
+.switch .btn::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 85%;
+    background: linear-gradient(#888, #888);
+    border-radius: 4px;
+}
+
+body.on .switch .btn::before {
+    background: linear-gradient(#fff, #fff);
+}
+
+body.on .switch .btn::before {
+    top: 15%;
+}

@@ -1,0 +1,88 @@
+.bulb {
+    top: 10%;
+    position: absolute;
+    width: 80px;
+    height: 80px;
+    z-index: 2;
+    left: calc(50% - 42px);
+    display: flex;
+    justify-content: center;
+    border: 2px solid #ddd;
+    border-radius: 50%;
+    transform: rotate(180deg) scale(.3);
+}
+
+body.on .bulb {
+    background: rgb(229, 255, 0);
+    box-shadow: 0 0 50px rgb(229, 255, 0),
+        0 0 100px rgb(229, 255, 0),
+        0 0 150px rgb(229, 255, 0),
+        0 0 300px rgb(229, 255, 0),
+        0 0 600px rgb(229, 255, 0);
+    border-color: rgb(229, 255, 0);
+}
+
+body.on .bulb::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 120px;
+    height: 120px;
+    background: rgb(229, 255, 0);
+    border-radius: 50%;
+    filter: blur(50px);
+}
+
+.bulb::before {
+    content: "";
+    position: absolute;
+    height: 32px;
+    width: 48px;
+    border: 2px solid #fff;
+    border-top: none;
+    background: #222;
+    top: 90%;
+    border-radius: 0 0 15px 15px;
+}
+
+body.on .bulb::before {
+    background: rgb(229, 255, 0);
+    border-color: rgb(229, 255, 0);
+}
+
+.arc {
+    position: absolute;
+    width: 30px;
+    height: 60px;
+    border-top: 2px solid #ddd;
+    border-left: 2px solid transparent;
+    border-right: 2px solid transparent;
+    border-radius: 100px / 100px;
+    margin: 11px 2px;
+    transform: rotate(295deg);
+}
+
+body.on .arc {
+    border-top-color: rgb(229, 255, 0);
+}
+
+.bulb-cap {
+    position: absolute;
+    width: 32px;
+    height: 24px;
+    background: rgb(0, 0, 0);
+    top: 129%;
+    border-radius: 0 0 10px 10px;
+}
+
+.wire {
+    position: absolute;
+    left: calc(50% - 2px);
+    top: 0%;
+    width: 4px;
+    height: 12%;
+    background: #000;
+    z-index: 1;
+}

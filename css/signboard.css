@@ -1,0 +1,221 @@
+
+.signboard {
+    position: relative;
+    width: 150px;
+    height: 100px;
+    position: absolute;
+    left: 10%;
+    top: 35%;
+    border-radius: 10px;
+    overflow: hidden;
+    border: 2px solid #000;
+    transform: scale(1);
+}
+
+body.on .signboard {
+    box-shadow: none;
+}
+
+.signboard::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background:
+        repeating-linear-gradient(to right, transparent 0 7px, #000 7px 8px) top,
+        repeating-linear-gradient(to right, transparent 0 7px, #000 7px 8px) bottom,
+        repeating-linear-gradient(to bottom, transparent 0 7px, #000 7px 8px) left,
+        repeating-linear-gradient(to bottom, transparent 0 7px, #000 7px 8px) right;
+    background-repeat: no-repeat;
+}
+
+.picture{
+    position: absolute;
+    z-index: 10;
+    border: 2px solid;
+    border-color: #fff;
+}
+
+.picture1 {
+    left: 13px;
+    top: 13px;
+    width: 10px;
+    height: 15px;
+    transform: rotate(-5deg);
+    border-bottom: 3px solid;
+}
+
+.picture1::after {
+    content: "";
+    position: absolute;
+    width: 1.5px;
+    height: 6px;
+    background-color: #000;
+    left: 50%;
+    top: -20%;
+    transform: translateX(-50%);
+}
+
+.picture2 {
+    left: 14px;
+    bottom: 20px;
+    width: 15px;
+    height: 20px;
+    transform: rotate(5deg);
+    border-bottom: 4px solid;
+}
+
+.picture2::after {
+    content: "";
+    position: absolute;
+    width: 1.5px;
+    height: 6px;
+    background-color: #000;
+    left: 50%;
+    top: -20%;
+    transform: translateX(-50%);
+}
+
+.picture3 {
+    right: 15px;
+    top: 14px;
+    width: 15px;
+    height: 20px;
+    transform: rotate(0deg);
+    border-bottom: 4px solid;
+}
+
+.picture3::after {
+    content: "";
+    position: absolute;
+    width: 1.5px;
+    height: 6px;
+    background-color: #000;
+    left: 50%;
+    top: -20%;
+    transform: translateX(-50%);
+}
+
+.picture4 {
+    right: 95px;
+    top: 15px;
+    width: 15px;
+    height: 20px;
+    border: 1px solid;
+    transform: rotate(-5deg);
+}
+
+.picture4::after {
+    content: "";
+    position: absolute;
+    width: 1.5px;
+    height: 6px;
+    background-color: #000;
+    left: 50%;
+    top: -20%;
+    transform: translateX(-50%);
+}
+
+.picture5 {
+    right: 55px;
+    top: 15px;
+    width: 15px;
+    height: 20px;
+    transform: rotate(0deg);
+}
+
+.picture5::after {
+    content: "";
+    position: absolute;
+    width: 1.5px;
+    height: 6px;
+    background-color: #000;
+    left: 50%;
+    top: -20%;
+    transform: translateX(-50%);
+}
+
+.week9 {
+    position: absolute;
+    bottom: 7px;
+    left: 55px;
+    width: 25px;
+    height: 35px;
+    border: 2px solid;
+    border-bottom: 8px solid;
+    border-color: #fff;
+    transform: rotate(3deg);
+    z-index: 10;
+    animation: hi infinite 3s;
+    animation-direction: alternate;
+    cursor: pointer;
+}
+
+.week9::after {
+    content: "";
+    position: absolute;
+    width: 1.5px;
+    height: 6px;
+    background-color: #000;
+    left: 50%;
+    top: -15%;
+    transform: translateX(-50%);
+}
+
+.week9 span {
+    position: absolute;
+    bottom: -5px;
+    left: 2px;
+    font-size: 2px;
+}
+
+.signboard>div::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+.signboard>div {
+    border-color: rgb(58, 56, 56);
+}
+
+body.on .signboard>div::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    background-color: rgba(0, 0, 0, 0);
+}
+
+body.on .signboard>div {
+    border-color: rgb(255, 255, 255);
+}
+
+.signboard .calendar {
+    border-color: #000;
+}
+
+body.on .signboard .calendar {
+    border-color: #000;
+}
+
+@keyframes hi {
+
+    0%,
+    30% {
+        transform: rotate(3deg);
+    }
+
+    70%,
+    100% {
+        transform: rotate(-3deg);
+    }
+}
