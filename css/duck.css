@@ -43,7 +43,6 @@
     z-index: 12;
     background-color: #000;
     clip-path: polygon(30.8% 23.1%, 38.5% 23.1%, 38.5% 26%, 30.8% 26%);
-    animation: blinking 3s infinite;
 }
 
 @keyframes blinking {
@@ -59,7 +58,7 @@
 
 body.on .duck-eye {
     clip-path: polygon(30.8% 23.1%, 38.5% 23.1%, 38.5% 30.8%, 30.8% 30.8%);
-
+        animation: blinking 3s infinite;
 }
 
 .duck-wing {
