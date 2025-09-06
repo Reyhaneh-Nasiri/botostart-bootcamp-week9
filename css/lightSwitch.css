@@ -57,3 +57,9 @@ body.on .switch .btn::before {
 body.on .switch .btn::before {
     top: 15%;
 }
+
+@media screen and (min-width: 768px) {
+    .switch{
+        transform: scale(.5);
+    }
+}
