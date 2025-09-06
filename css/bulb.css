@@ -86,3 +86,9 @@ body.on .arc {
     background: #000;
     z-index: 1;
 }
+
+@media screen and (min-width: 768px) {
+    .bulb{
+        transform: rotate(180deg) scale(.5);
+    }
+}
