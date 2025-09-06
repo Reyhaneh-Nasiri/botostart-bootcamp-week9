@@ -70,10 +70,6 @@ body.on .duck-eye {
     clip-path: polygon(30.8% 53.9%, 53.9% 53.9%, 53.9% 61.6%, 77% 61.6%, 77% 53.9%, 84.7% 53.9%, 84.7% 84.7%, 77% 84.7%, 77% 92.4%, 30.8% 92.4%, 30.8% 84.7%, 23.1% 84.7%, 23.1% 61.6%, 30.8% 61.6%);
 }
 
-
-
-
-
 .walkAnimation {
     animation: walk 2s;
     animation-iteration-count: 1;
@@ -124,4 +120,10 @@ body.on .duck-eye {
         bottom: 10vh;
     }
 
+}
+
+@media screen and (min-width: 768px) {
+    .duck{
+        transform: scale(1.2);
+    }
 }
