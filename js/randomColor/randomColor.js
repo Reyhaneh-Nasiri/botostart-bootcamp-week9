@@ -11,10 +11,14 @@ for (let i = 1; i <= numberOfItems; i++) {
   addClass(carouselItem, `item${i}`);
   const showColorElement = createElement("div");
   addClass(showColorElement, "show-color");
+  const showHexElement = createElement("span");
+  addClass(showHexElement, "hex");
   carousel.appendChild(carouselItem);
   carouselItem.appendChild(showColorElement);
+  carouselItem.appendChild(showHexElement);
   const color = getRandomColor();
   showColorElement.style.backgroundColor = color;
+  showHexElement.innerText = color;
 }
 
 const items = document.querySelectorAll(".carousel-item");
@@ -24,6 +28,7 @@ items.forEach((item) => {
     const className = e.target.className;
     if (className === "show-color") {
       e.target.style.backgroundColor = colorCode;
+      e.target.nextElementSibling.innerText = colorCode;
     }
   });
 });
