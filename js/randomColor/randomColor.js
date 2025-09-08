@@ -1,5 +1,13 @@
 import { getRandomColor } from "../../src/utils/color.js";
-import { addClass, copyToClipboard, createElement } from "../../src/utils/dom.js";
+import {
+  addClass,
+  copyToClipboard,
+  createElement,
+} from "../../src/utils/dom.js";
+import {
+  getColorsFromLocalStorage,
+  saveColorToLocalStorage,
+} from "../../src/utils/storage.js";
 
 const carousel = document.querySelector(".carousel");
 const numberOfItems = 5;
@@ -16,9 +24,16 @@ for (let i = 1; i <= numberOfItems; i++) {
   carousel.appendChild(carouselItem);
   carouselItem.appendChild(showColorElement);
   carouselItem.appendChild(showHexElement);
-  const color = getRandomColor();
-  showColorElement.style.backgroundColor = color;
-  showHexElement.innerText = color;
+  if (getColorsFromLocalStorage(`item${i}`)) {
+    const color = getColorsFromLocalStorage(`item${i}`);
+    showColorElement.style.backgroundColor = color;
+    showHexElement.innerText = color;
+  } else {
+    const color = getRandomColor();
+    showColorElement.style.backgroundColor = color;
+    showHexElement.innerText = color;
+    saveColorToLocalStorage(`item${i}`, color);
+  }
 }
 
 const items = document.querySelectorAll(".carousel-item");
@@ -29,6 +44,7 @@ items.forEach((item) => {
     if (className === "show-color") {
       e.target.style.backgroundColor = colorCode;
       e.target.nextElementSibling.innerText = colorCode;
+      saveColorToLocalStorage(item.classList[1], colorCode);
     } else if (className === "hex") {
       const hexCode = e.target.innerText;
       copyToClipboard(hexCode);
