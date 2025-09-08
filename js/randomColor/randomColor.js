@@ -1,5 +1,5 @@
 import { getRandomColor } from "../../src/utils/color.js";
-import { addClass, createElement } from "../../src/utils/dom.js";
+import { addClass, copyToClipboard, createElement } from "../../src/utils/dom.js";
 
 const carousel = document.querySelector(".carousel");
 const numberOfItems = 5;
@@ -29,6 +29,13 @@ items.forEach((item) => {
     if (className === "show-color") {
       e.target.style.backgroundColor = colorCode;
       e.target.nextElementSibling.innerText = colorCode;
+    } else if (className === "hex") {
+      const hexCode = e.target.innerText;
+      copyToClipboard(hexCode);
+      e.target.innerText = "copied!";
+      setTimeout(() => {
+        e.target.innerText = hexCode;
+      }, 700);
     }
   });
 });
