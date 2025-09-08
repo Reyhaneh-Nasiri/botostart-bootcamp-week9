@@ -156,6 +156,7 @@ body.on .signboard {
     animation: hi infinite 3s;
     animation-direction: alternate;
     cursor: pointer;
+    background: linear-gradient(to left, #577abb 20%, #767ebf 20% 40%, #6f9dc3 40% 60%, #bdc9df 60% 80%, #e9b5aa 80% 100%);
 }
 
 .week9::after {
