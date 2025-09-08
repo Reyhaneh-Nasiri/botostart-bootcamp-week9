@@ -1,56 +1,78 @@
-const carouselItems = document.querySelectorAll(".carousel-item");
+import { getRandomColor } from "../../src/utils/color.js";
+import { addClass, createElement } from "../../src/utils/dom.js";
+
 const carousel = document.querySelector(".carousel");
-window.addEventListener("resize", () => {
-  if(innerWidth < 768) {
-  let currentIndex = 0;
-  const prevButton = document.querySelector(".carouselPrev");
-  const nextButton = document.querySelector(".carouselNext");
-  const showSlide = (index) => {
-    for (let i = 0; i < carouselItems.length; i++) {
-      carouselItems[i].classList.remove("active");
+const numberOfItems = 5;
+carousel.style.gridTemplateColumns = `repeat(${numberOfItems}, 1fr)`;
+
+for (let i = 1; i <= numberOfItems; i++) {
+  const carouselItem = createElement("div");
+  addClass(carouselItem, "carousel-item");
+  addClass(carouselItem, `item${i}`);
+  const showColorElement = createElement("div");
+  addClass(showColorElement, "show-color");
+  carousel.appendChild(carouselItem);
+  carouselItem.appendChild(showColorElement);
+  const color = getRandomColor();
+  showColorElement.style.backgroundColor = color;
+}
+
+const items = document.querySelectorAll(".carousel-item");
+items.forEach((item) => {
+  item.addEventListener("click", (e) => {
+    const colorCode = getRandomColor();
+    const className = e.target.className;
+    if (className === "show-color") {
+      e.target.style.backgroundColor = colorCode;
     }
-    carouselItems[index].classList.add("active");
-  };
+  });
+});
+
+// carousel
+const carouselItems = document.querySelectorAll(".carousel-item");
+let currentIndex = 0;
+const prevButton = document.querySelector(".carouselPrev");
+const nextButton = document.querySelector(".carouselNext");
+const showSlide = (index) => {
+  for (let i = 0; i < carouselItems.length; i++) {
+    carouselItems[i].classList.remove("active");
+  }
+  carouselItems[index].classList.add("active");
+};
+showSlide(currentIndex);
+prevButton.addEventListener("click", () => {
+  currentIndex--;
+  if (currentIndex < 0) {
+    currentIndex = carouselItems.length - 1;
+  }
   showSlide(currentIndex);
-  prevButton.addEventListener("click", () => {
-    currentIndex--;
-    if (currentIndex < 0) {
-      currentIndex = carouselItems.length - 1;
-    }
-    showSlide(currentIndex);
-  });
+});
 
-  nextButton.addEventListener("click", () => {
-    currentIndex++;
-    if (currentIndex > carouselItems.length - 1) {
-      currentIndex = 0;
-    }
-    showSlide(currentIndex);
-  });
+nextButton.addEventListener("click", () => {
+  currentIndex++;
+  if (currentIndex > carouselItems.length - 1) {
+    currentIndex = 0;
+  }
+  showSlide(currentIndex);
+});
 
-  let sliderInterval = setInterval(() => {
+let sliderInterval = setInterval(() => {
+  currentIndex++;
+  if (currentIndex > carouselItems.length - 1) {
+    currentIndex = 0;
+  }
+  showSlide(currentIndex);
+}, 3000);
+
+carousel.addEventListener("mouseenter", () => {
+  clearInterval(sliderInterval);
+});
+carousel.addEventListener("mouseleave", () => {
+  sliderInterval = setInterval(() => {
     currentIndex++;
     if (currentIndex > carouselItems.length - 1) {
       currentIndex = 0;
     }
     showSlide(currentIndex);
   }, 3000);
-
-  carousel.addEventListener("mouseenter", () => {
-    clearInterval(sliderInterval);
-  });
-  carousel.addEventListener("mouseleave", () => {
-    sliderInterval = setInterval(() => {
-      currentIndex++;
-      if (currentIndex > carouselItems.length - 1) {
-        currentIndex = 0;
-      }
-      showSlide(currentIndex);
-    }, 3000);
-  });
-  } else{
-        for (let i = 0; i < carouselItems.length; i++) {
-      carouselItems[i].classList.remove("active");
-    }
-  }
 });
