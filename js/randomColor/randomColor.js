@@ -42,6 +42,7 @@ items.forEach((item) => {
     const colorCode = getRandomColor();
     const className = e.target.className;
     if (className === "show-color") {
+      new Audio("../../assets/sounds/change-color.mp3").play();
       e.target.style.backgroundColor = colorCode;
       e.target.nextElementSibling.innerText = colorCode;
       saveColorToLocalStorage(item.classList[1], colorCode);
